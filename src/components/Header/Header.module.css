@@ -50,3 +50,28 @@
 .button svg {
   font-size: 1.6rem;
 }
+
+.searchForm {
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  visibility: hidden;
+  width: 0;
+  opacity: 0;
+  box-sizing: border-box;
+  transition: width 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+  border: none;
+  background-color: inherit;
+  color: var(--font-color-dark);
+  font-size: 1rem;
+}
+
+.inputActive {
+  visibility: visible;
+  width: 200px;
+  opacity: 1;
+  padding: 0.3rem 1rem;
+  border-bottom: 2px solid black;
+}
