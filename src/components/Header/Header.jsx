@@ -1,4 +1,5 @@
 // Header.jsx
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
@@ -7,34 +8,67 @@ const NavLinks = () => (
   <nav className={styles.flexItem}>
     <ul className={styles.linksList}>
       <li>
-        <a href="">Men's Clothing</a>
+        <Link to="products/men">Men's Clothing</Link>
       </li>
       <li>
-        <a href="">Women's Clothing</a>
+        <Link to="products/women">Women's Clothing</Link>
       </li>
       <li>
-        <a href="">Jewelry</a>
+        <Link to="products/jewelry">Jewelry</Link>
       </li>
       <li>
-        <a href="">Electronics</a>
+        <Link to="products/electronics">Electronics</Link>
       </li>
     </ul>
   </nav>
 );
 
-const Search = () => (
-  <button className={styles.button} aria-label="Search">
-    <div className={styles.searchContainer}>
-      <SearchIcon></SearchIcon>
-    </div>
-  </button>
-);
+const Search = () => {
+  const searchBtnClicked = (e) => {
+    const btn = e.target.closest("button");
+    const input = btn.parentElement.querySelector("input");
+    input.classList.toggle(styles.inputActive);
+    // Hide from accessibilty tree when not active
+    if (input.classList.contains(styles.inputActive)) {
+      input.removeAttribute("aria-hidden");
+    } else {
+      input.setAttribute("aria-hidden", "true");
+    }
+  };
 
-const CartButton = () => (
-  <button className={styles.button} aria-label="Cart">
-    <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
-  </button>
-);
+  return (
+    <form className={styles.searchForm}>
+      <button
+        type="button"
+        className={styles.button}
+        onClick={searchBtnClicked}
+        aria-label="Search"
+      >
+        <SearchIcon></SearchIcon>
+      </button>
+      <input
+        type="text"
+        className={styles.searchInput}
+        placeholder="Search..."
+        aria-label="Search through products"
+      />
+    </form>
+  );
+};
+
+const CartButton = () => {
+  const cartBtnClicked = () => {};
+
+  return (
+    <button
+      className={styles.button}
+      onClick={cartBtnClicked}
+      aria-label="Cart"
+    >
+      <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
+    </button>
+  );
+};
 
 const Header = () => {
   return (
