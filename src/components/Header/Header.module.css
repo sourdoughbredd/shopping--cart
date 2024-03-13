@@ -3,7 +3,7 @@
   align-items: center;
   gap: 18px;
   box-shadow: var(--section-box-shadow);
-  padding: 0 12px;
+  padding: 0 var(--body-side-padding);
 }
 
 .header h1 {
@@ -28,8 +28,8 @@
   gap: 24px;
 }
 
-.linksList a:link,
-.linksList a:visited {
+.header a:link,
+.header a:visited {
   color: inherit;
   text-decoration: none;
   text-wrap: nowrap;
@@ -61,7 +61,8 @@
   width: 0;
   opacity: 0;
   box-sizing: border-box;
-  transition: width 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+  transition: width 0.5s ease, padding-left 0.5s ease, padding-right 0.5s ease,
+    opacity 0.5s ease;
   border: none;
   background-color: inherit;
   color: var(--font-color-dark);
