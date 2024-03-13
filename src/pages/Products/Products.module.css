@@ -1,0 +1,20 @@
+.productsPage {
+  padding: 0 var(--body-side-padding);
+  padding-bottom: var(--body-side-padding);
+}
+
+.container {
+  --shadow-color: rgba(0, 0, 0, 0.136);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  filter: drop-shadow(var(--shadow-color) 0.5px 1px 1px)
+    drop-shadow(var(--shadow-color) 1px 2px 2px)
+    drop-shadow(var(--shadow-color) 2px 4px 4px)
+    drop-shadow(var(--shadow-color) 4px 8px 8px)
+    drop-shadow(var(--shadow-color) 8px 16px 16px);
+}
+
+.title {
+  text-transform: capitalize;
+}
