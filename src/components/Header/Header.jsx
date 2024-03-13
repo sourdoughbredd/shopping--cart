@@ -8,13 +8,13 @@ const NavLinks = () => (
   <nav className={styles.flexItem}>
     <ul className={styles.linksList}>
       <li>
-        <Link to="products/men">Men's Clothing</Link>
+        <Link to="products/men's clothing">Men&apos;s Clothing</Link>
       </li>
       <li>
-        <Link to="products/women">Women's Clothing</Link>
+        <Link to="products/women's clothing">Women&apos;s Clothing</Link>
       </li>
       <li>
-        <Link to="products/jewelry">Jewelry</Link>
+        <Link to="products/jewelery">Jewelry</Link>
       </li>
       <li>
         <Link to="products/electronics">Electronics</Link>
@@ -73,7 +73,9 @@ const CartButton = () => {
 const Header = () => {
   return (
     <header className={styles.header}>
-      <h1>Stuff</h1>
+      <Link to="/">
+        <h1>Stuff</h1>
+      </Link>
       <NavLinks></NavLinks>
       <div className={styles.buttonGroup}>
         <Search></Search>
