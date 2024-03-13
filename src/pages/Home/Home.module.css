@@ -1,0 +1,19 @@
+.container {
+  flex-grow: 1;
+  display: grid;
+  place-items: center;
+  background: url("../../assets/home-bg-img.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.title {
+  margin: 0;
+  font-size: 8rem;
+  color: rgba(17, 19, 31, 0.698);
+  text-shadow: 3px 3px 20px #f5f5f5, -2px 1px 30px #ffffff;
+  box-sizing: border-box;
+  padding: 0 0.2em;
+  transform: translate(-50%);
+  /* border-radius: 0.3em; */
+  /* background-color: rgba(39, 49, 71, 0.753); */
+}
