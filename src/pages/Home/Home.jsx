@@ -1,6 +1,5 @@
 // Home.jsx
 import styles from "./Home.module.css";
-import Featured from "../../components/Featured/Featured";
 
 const Home = () => {
   return (
@@ -8,7 +7,6 @@ const Home = () => {
       <div className={styles.container}>
         <h2 className={styles.title}>Stuff</h2>
       </div>
-      <Featured />
     </>
   );
 };
