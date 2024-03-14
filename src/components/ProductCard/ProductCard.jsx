@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import styles from "./ProductCard.module.css";
+import { CartContext } from "../../App";
 
-const AddToCart = () => {
+const AddToCart = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
+  // Process and validate the quantity input
   const parseInput = (input) => {
     if (input === "") return null;
     const inputInt = parseInt(input);
@@ -37,19 +40,21 @@ const AddToCart = () => {
           +
         </button>
       </div>
-      <button type="button">Add to Cart</button>
+      <button type="button" onClick={() => addToCart(product, quantity)}>
+        Add to Cart
+      </button>
     </div>
   );
 };
 
-const ProductCard = ({ product, onClick }) => {
+const ProductCard = ({ product }) => {
   return (
     <div className={styles.card}>
       <div className={styles.imgContainer}>
         <img src={product.image} alt="Product image" />
       </div>
       <h3>{product.title}</h3>
-      <AddToCart />
+      <AddToCart {...{ product }} />
     </div>
   );
 };
