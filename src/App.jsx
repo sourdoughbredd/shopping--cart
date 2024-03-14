@@ -10,13 +10,23 @@ export const CartContext = createContext({
   addToCart: () => {},
 });
 
+// App Layout
+const Layout = ({ cart, addToCart }) => {
+  return (
+    <CartContext.Provider value={{ cart, addToCart }}>
+      <Header />
+      <Outlet />
+    </CartContext.Provider>
+  );
+};
+
 const App = () => {
   // Cart management
   const [cart, setCart] = useState({});
 
+  // Add to cart using setCart
   const addToCart = (product, quantity) => {
     const id = product.id;
-    console.log(product);
     if (id in cart) {
       const oldQuantity = cart[id].quantity;
       const newCart = {
@@ -24,26 +34,19 @@ const App = () => {
         [id]: { ...cart[id], quantity: oldQuantity + quantity },
       };
       setCart(newCart);
+      console.log(newCart);
     } else {
       const newCart = { ...cart, [id]: { quantity: quantity, ...product } };
       setCart(newCart);
+      console.log(newCart);
     }
   };
 
-  // App Layout and Router
-  const Layout = () => {
-    return (
-      <CartContext.Provider value={{ cart, addToCart }}>
-        <Header />
-        <Outlet />
-      </CartContext.Provider>
-    );
-  };
-
+  // Router
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: <Layout {...{ cart, addToCart }} />,
       children: [
         { index: true, element: <Home /> },
         { path: "products/:category", element: <Products /> },
