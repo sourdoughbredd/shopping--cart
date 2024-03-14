@@ -3,10 +3,15 @@ import useFetchCategory from "../../hooks/useFetchCategory";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import styles from "./Products.module.css";
 
+// Products Page
 const Products = () => {
+  // Get category
   const { category } = useParams();
+  // Fetch products in category
   const { products, error, loading } = useFetchCategory(category);
 
+  // Page builder to allow shared content between error,
+  // loading, and normal pages
   const Page = (content) => {
     return (
       <div className={styles.productsPage}>
@@ -18,7 +23,8 @@ const Products = () => {
     );
   };
 
-  if (error) return Page(<p>Error</p>);
+  // Render
+  if (error) return Page(<p>An error occurred: {error.message}</p>);
   if (loading) return Page(<p>Loading...</p>);
   return Page(products.map((p) => <ProductCard key={p.id} product={p} />));
 };
