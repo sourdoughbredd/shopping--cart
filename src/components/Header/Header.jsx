@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useContext } from "react";
+import { CartContext } from "../../App";
 
 const NavLinks = () => (
   <nav className={styles.flexItem}>
@@ -44,7 +46,7 @@ const Search = () => {
         onClick={searchBtnClicked}
         aria-label="Search"
       >
-        <SearchIcon></SearchIcon>
+        <SearchIcon />
       </button>
       <input
         type="text"
@@ -57,15 +59,15 @@ const Search = () => {
 };
 
 const CartButton = () => {
-  const cartBtnClicked = () => {};
+  const { toggleCartVisibility } = useContext(CartContext);
 
   return (
     <button
       className={styles.button}
-      onClick={cartBtnClicked}
+      onClick={toggleCartVisibility}
       aria-label="Cart"
     >
-      <ShoppingCartOutlinedIcon></ShoppingCartOutlinedIcon>
+      <ShoppingCartOutlinedIcon />
     </button>
   );
 };
@@ -76,10 +78,10 @@ const Header = () => {
       <Link to="/">
         <h1>Stuff</h1>
       </Link>
-      <NavLinks></NavLinks>
+      <NavLinks />
       <div className={styles.buttonGroup}>
         <Search></Search>
-        <CartButton></CartButton>
+        <CartButton />
       </div>
     </header>
   );
