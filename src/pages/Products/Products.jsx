@@ -5,12 +5,10 @@ import styles from "./Products.module.css";
 
 // Products Page
 const Products = () => {
-  // Get category
   const { category } = useParams();
-  // Fetch products in category
   const { products, error, loading } = useFetchCategory(category);
 
-  // Page builder to allow shared content between error,
+  // Page generator to allow shared content between error,
   // loading, and normal pages
   const Page = (content) => {
     return (
