@@ -96,7 +96,7 @@
 
 .checkoutBtn {
   cursor: pointer;
-  background-color: field;
+  background-color: var(--button-color-dark);
   border: none;
   font-size: 1.1rem;
   font-weight: 600;
