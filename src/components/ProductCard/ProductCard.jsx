@@ -7,16 +7,6 @@ const AddToCart = ({ product }) => {
   const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
-  // Process and validate the quantity input
-  const parseInput = (input) => {
-    if (input === "") return null;
-    const inputInt = parseInt(input);
-    if (inputInt < 1) {
-      return 1;
-    }
-    return inputInt;
-  };
-
   return (
     <div className={styles.addToCartContainer}>
       <QtyControl {...{ quantity, setQuantity }} />
