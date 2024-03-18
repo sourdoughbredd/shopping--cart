@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  gap: 4px;
+}
+
+.container > * {
+  box-shadow: 0 2px 2px gray;
+}
+
+.container input {
+  width: 2rem;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+}
+
+.container button {
+  background-color: rgb(196, 105, 0);
+  border: none;
+  width: 2rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Remove incrementer arrows from number inputs */
+
+/* Chrome, Safari, Edge, Opera */
+.container input::-webkit-outer-spin-button,
+.container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.container input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: none;
+}
