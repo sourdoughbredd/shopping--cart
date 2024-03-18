@@ -15,6 +15,7 @@
 }
 
 .container button {
+  cursor: pointer;
   background-color: rgb(196, 105, 0);
   border: none;
   width: 2rem;
